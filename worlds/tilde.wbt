@@ -1,0 +1,40 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/TurtleBot3Burger.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.542274393363741 0.5158169318407766 0.6632279963393841 2.015980352035671
+  position 0.5185547029165933 -2.346295841102536 8.324407353604455
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Wall {
+  size 0.2 2 0.5
+}
+Wall {
+  translation -0.681746 -1.58121 0
+  rotation 0 0 1 -0.785395307179586
+  name "wall(1)"
+  size 0.2 2 0.5
+}
+RectangleArena {
+  floorSize 10 10
+  wallHeight 0.0001
+}
+TurtleBot3Burger {
+  translation 0.329895 -0.560232 0
+  rotation 0 0 1 -1.8325953071795862
+}
+TurtleBot3Burger {
+  translation 0.375269 0.085929 0.1
+  rotation 0 0 1 -1.8325953071795862
+  name "TurtleBot3Burger(1)"
+}
