@@ -60,7 +60,7 @@ def generate_launch_description():
             'diff_drive_controller',
             '--controller-manager', '/host/controller_manager',
             '--param-file', cfg_path,
-            '--controller-ros-args', '--ros-args --remap cmd_vel:=/host/cmd_vel --remap odom:=/host/odom'
+            '--controller-ros-args', '--ros-args -p use_stamped_vel:=false --remap cmd_vel:=/host/cmd_vel --remap odom:=/host/odom'
         ],
         output='screen'
     )
@@ -79,7 +79,7 @@ def generate_launch_description():
             'diff_drive_controller',
             '--controller-manager', '/guest/controller_manager',
             '--param-file', cfg_path,
-            '--controller-ros-args', '--ros-args --remap cmd_vel:=/guest/cmd_vel --remap odom:=/guest/odom'
+            '--controller-ros-args', '--ros-args -p use_stamped_vel:=false --remap cmd_vel:=/guest/cmd_vel --remap odom:=/guest/odom'
         ],
         output='screen'
     )
