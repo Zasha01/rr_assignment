@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<robot name="TurtleBot3 Burger Webots">
+
+  <!-- at least one base link so RSP can run -->
+  <link name="base_link"/>
+  <!-- dummy wheel links so ros2_control can find the joints -->
+  <link name="left_wheel_link"/>
+  <link name="right_wheel_link"/>
+
+  <!-- joints that match your wheel device names -->
+  <joint name="left wheel motor" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  <joint name="right wheel motor" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <webots>
+    <device reference="LDS-01" type="Lidar">
+      <ros>
+        <enabled>true</enabled>
+        <updateRate>10</updateRate>
+        <topicName>/scan</topicName>
+        <alwaysOn>true</alwaysOn>
+        <frameName>laser_frame</frameName>
+      </ros>
+    </device>
+
+    <!-- start ros2_control inside the Webots driver -->
+    <plugin type="webots_ros2_control::Ros2Control" />
+  </webots>
+
+  <!-- ros2_control hardware description listing wheel joints -->
+  <ros2_control name="WebotsControl" type="system">
+    <hardware>
+      <plugin>webots_ros2_control::Ros2ControlSystem</plugin>
+    </hardware>
+    <joint name="right wheel motor">
+      <state_interface name="position"/>
+      <command_interface name="velocity"/>
+    </joint>
+    <joint name="left wheel motor">
+      <state_interface name="position"/>
+      <command_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+</robot>
